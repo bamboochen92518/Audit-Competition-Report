@@ -13,3 +13,6 @@
 [submodule "lib/contracts-libs"]
 	path = lib/contracts-libs
 	url = https://github.com/LooksRare/contracts-libs
+[submodule "lib/v2-core"]
+	path = lib/v2-core
+	url = https://github.com/uniswap/v2-core
