@@ -9,10 +9,10 @@ pragma solidity ^0.8.20;
 
 import {IRoninValidator} from "./interfaces/IRoninValidators.sol";
 import {ILiquidProxy} from "./interfaces/ILiquidProxy.sol";
-import "@openzeppelin/token/ERC20/extensions/ERC4626.sol";
-import "@openzeppelin/token/ERC20/IERC20.sol";
-import "@openzeppelin/utils/math/Math.sol";
-import {Ownable} from "@openzeppelin/access/Ownable.sol";
+import "@openzeppelin/contracts/token/ERC20/extensions/ERC4626.sol";
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "@openzeppelin/contracts/utils/math/Math.sol";
+import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 import {Pausable} from "./Pausable.sol";
 import {RonHelper} from "./RonHelper.sol";
 import {Escrow} from "./Escrow.sol";

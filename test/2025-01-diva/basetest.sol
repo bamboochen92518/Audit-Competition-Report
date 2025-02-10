@@ -75,25 +75,6 @@ contract MyContractTest is Test {
         require(usdcAddress == wrapper.getCollateralToken(wtoken_address));
     }
 
-    function testCreateContingentPool register public {
-        vm.startPrank(owner);
-        PoolParams p = {
-            referenceAsset = "USDC".
-            expiryTime = block.timestamp + 15,
-            floor = ,
-            inflection = ,
-            cap = ,
-            gradient = ,
-            collateralAmount = ,
-            collateralToken = ,
-            dataProvider = ,
-            capacity = ,
-            longRecipient = ,
-            shortRecipient = ,
-            permissionedERC721Token = ,
-        }
-    }
-    
     receive() external payable {
         // Code to handle received ETH
     }

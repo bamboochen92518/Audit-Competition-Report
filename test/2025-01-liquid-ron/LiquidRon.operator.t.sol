@@ -6,8 +6,8 @@ import {LiquidRon, WithdrawalStatus, Pausable} from "../../src/2025-01-liquid-ro
 import {LiquidProxy} from "../../src/2025-01-liquid-ron/LiquidProxy.sol";
 import {WrappedRon} from "../../src/2025-01-liquid-ron/mock/WrappedRon.sol";
 import {MockRonStaking} from "../../src/2025-01-liquid-ron/mock/MockRonStaking.sol";
-import {IERC20} from "@openzeppelin/token/ERC20/IERC20.sol";
-import {IERC20Errors} from "@openzeppelin/interfaces/draft-IERC6093.sol";
+import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import {IERC20Errors} from "@openzeppelin/contracts/interfaces/draft-IERC6093.sol";
 
 contract LiquidRonTest is Test {
     LiquidRon public liquidRon;

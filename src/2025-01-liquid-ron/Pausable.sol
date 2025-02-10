@@ -7,7 +7,7 @@ pragma solidity ^0.8.20;
  *    -"-"-
  */
 
-import "@openzeppelin/access/Ownable.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 
 abstract contract Pausable is Ownable {
     error ErrPaused();

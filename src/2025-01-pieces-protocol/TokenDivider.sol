@@ -2,7 +2,7 @@
 pragma solidity ^0.8.18;
 
 import {IERC20} from "@openzeppelin/contracts/token/ERC20/ERC20.sol";
-import {ERC20ToGenerateNftFraccion} from "src/token/ERC20ToGenerateNftFraccion.sol";
+import {ERC20ToGenerateNftFraccion} from "./token/ERC20ToGenerateNftFraccion.sol";
 import {IERC721, ERC721} from "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import {IERC721Receiver} from "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol";
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
