@@ -10,17 +10,17 @@ import "../../src/2025-01-diva/interfaces/IDIVA.sol";
 import "../../src/2025-01-diva/interfaces/IWToken.sol";
 
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
-import "lib/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol";
+import "v2-periphery/interfaces/IUniswapV2Router02.sol";
 
 
 address constant aaveAddress = 0x794a61358D6845594F94dc1DB02A252b5b4814aD;
 address constant divaAddress = 0x2C9c47E7d254e493f02acfB410864b9a86c28e1D;
 address constant usdcAddress = 0xaf88d065e77c8cC2239327C5EDb3A432268e5831;
-address constant usdtAddress = 0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9;
+address constant usdtAddress = 0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9;
 address constant uniswapRouterAddress = 0x4752ba5DBc23f44D87826276BF6Fd6b1C372aD24;
 
 
-contract MyContractTest is Test {
+contract AaveDIVAWrapperTest is Test {
     IUniswapV2Router02 public uniswapRouter;
     IERC20 public usdc;
 

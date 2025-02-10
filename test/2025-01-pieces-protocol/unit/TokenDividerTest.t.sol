@@ -9,7 +9,7 @@ import {ERC20Mock} from '@openzeppelin/contracts/mocks/token/ERC20Mock.sol';
 import {Ownable} from '@openzeppelin/contracts/access/Ownable.sol';
 
 
-contract TokenDiverTest is Test {
+contract TokenDividerTest is Test {
     TokenDivider tokenDivider;
     ERC721Mock erc721Mock;
 
