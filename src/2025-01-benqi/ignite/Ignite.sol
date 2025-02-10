@@ -1,13 +1,14 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.0;
 
-import "@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol";
-import "@openzeppelin/contracts-upgradeable/token/ERC20/extensions/IERC20MetadataUpgradeable.sol";
-import "@openzeppelin/contracts-upgradeable/token/ERC20/utils/SafeERC20Upgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol";
-import "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol";
-import "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol";
-import "@openzeppelin/contracts-upgradeable/utils/structs/EnumerableSetUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/utils/ReentrancyGuardUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/utils/PausableUpgradeable.sol";
+import "@openzeppelin/contracts/utils/structs/EnumerableSet.sol";
+
+import { SafeERC20 } from "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
+import { IERC20 } from "@openzeppelin/contracts/interfaces/IERC20.sol";
+import {IERC20Metadata} from "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol";
 
 import "./IgniteStorage.sol";
 import "./IPriceFeed.sol";
@@ -21,9 +22,9 @@ contract Ignite is
     PausableUpgradeable,
     IgniteStorage
 {
-    using SafeERC20Upgradeable for IERC20Upgradeable;
-    using SafeERC20Upgradeable for IERC20MetadataUpgradeable;
-    using EnumerableSetUpgradeable for EnumerableSetUpgradeable.AddressSet;
+    using SafeERC20 for IERC20;
+    using SafeERC20 for IERC20Metadata;
+    using EnumerableSet for EnumerableSet.AddressSet;
 
     bytes32 public constant ROLE_WITHDRAW = keccak256("ROLE_WITHDRAW");
     bytes32 public constant ROLE_REGISTER_WITHOUT_COLLATERAL = keccak256("ROLE_REGISTER_WITHOUT_COLLATERAL");
@@ -136,7 +137,7 @@ contract Ignite is
         _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
 
         sAVAX = IStakedAvax(_sAVAX);
-        qi = IERC20Upgradeable(_qi);
+        qi = IERC20(_qi);
 
         _initialisePriceFeeds(_avaxPriceFeed, _maxAvaxPriceAge, _qi, _qiPriceFeed, _maxQiPriceAge);
 
@@ -290,7 +291,7 @@ contract Ignite is
     ) external nonReentrant whenNotPaused {
         require(paymentTokens.contains(tokenAddress));
 
-        IERC20MetadataUpgradeable token = IERC20MetadataUpgradeable(tokenAddress);
+        IERC20Metadata token = IERC20Metadata(tokenAddress);
 
         (, int256 avaxPrice, , uint avaxPriceUpdatedAt, ) = priceFeeds[AVAX].latestRoundData();
         (, int256 tokenPrice, , uint tokenPriceUpdatedAt, ) = priceFeeds[tokenAddress].latestRoundData();
@@ -430,7 +431,7 @@ contract Ignite is
 
                 emit Redeem(nodeId, avaxDepositAmount, address(0), 0);
             } else {
-                IERC20Upgradeable token = IERC20Upgradeable(registration.tokenDeposits.token);
+                IERC20 token = IERC20(registration.tokenDeposits.token);
                 uint tokenDepositAmount = registration.tokenDeposits.tokenAmount;
 
                 _deleteRegistration(nodeId);
@@ -634,7 +635,7 @@ contract Ignite is
                 (bool success, ) = FEE_RECIPIENT.call{ value: avaxDepositAmount }("");
                 require(success);
             } else {
-                IERC20Upgradeable token = IERC20Upgradeable(registration.tokenDeposits.token);
+                IERC20 token = IERC20(registration.tokenDeposits.token);
                 uint tokenDepositAmount = registration.tokenDeposits.tokenAmount;
 
                 _deleteRegistration(nodeId);

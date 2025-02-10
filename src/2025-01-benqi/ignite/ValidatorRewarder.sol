@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8;
 
-import "@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol";
-import "@openzeppelin/contracts-upgradeable/token/ERC20/utils/SafeERC20Upgradeable.sol";
+import { SafeERC20 } from "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
+import { IERC20 } from "@openzeppelin/contracts/interfaces/IERC20.sol";
 import "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol";
-import "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/utils/PausableUpgradeable.sol";
 import "./ValidatorRewarderStorage.sol";
 
 /// @notice Thrown if a privileged function is called without appropriate access rights
@@ -15,7 +15,7 @@ contract ValidatorRewarder is
     PausableUpgradeable,
     ValidatorRewarderStorage
 {
-    using SafeERC20Upgradeable for IERC20Upgradeable;
+    using SafeERC20 for IERC20;
 
     bytes32 public constant ROLE_WITHDRAW = keccak256("ROLE_WITHDRAW");
     bytes32 public constant ROLE_PAUSE = keccak256("ROLE_PAUSE");
@@ -53,7 +53,7 @@ contract ValidatorRewarder is
 
         _grantRole(DEFAULT_ADMIN_ROLE, _admin);
 
-        qi = IERC20Upgradeable(_qi);
+        qi = IERC20(_qi);
         ignite = _ignite;
         targetApr = _targetApr;
     }

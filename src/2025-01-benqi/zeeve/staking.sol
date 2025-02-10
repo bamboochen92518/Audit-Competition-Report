@@ -4,13 +4,13 @@ pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol";
-import "@openzeppelin/contracts-upgradeable/token/ERC20/utils/SafeERC20Upgradeable.sol";
-import "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol";
+import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
+import "@openzeppelin/contracts-upgradeable/utils/ReentrancyGuardUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/utils/PausableUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol";
-import "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
-import "@openzeppelin/contracts-upgradeable/utils/structs/EnumerableSetUpgradeable.sol";
+import "@openzeppelin/contracts/utils/structs/EnumerableSet.sol";
 import "@looksrare/contracts-libs/contracts/lowLevelCallers/LowLevelWETH.sol";
 import "./interfaces/IJoeRouter02.sol";
 import "./interfaces/IIgnite.sol";
@@ -22,11 +22,11 @@ contract StakingContract is
     PausableUpgradeable,
     LowLevelWETH
 {
-    using SafeERC20Upgradeable for IERC20Upgradeable;
-    using EnumerableSetUpgradeable for EnumerableSetUpgradeable.AddressSet;
+    using SafeERC20 for IERC20;
+    using EnumerableSet for EnumerableSet.AddressSet;
 
     // Variables for contracts and addresses
-    IERC20Upgradeable public qiToken;
+    IERC20 public qiToken;
     IIgnite public igniteContract;
     address public zeeveWallet;
     IJoeRouter02 private joeRouter;
@@ -40,7 +40,7 @@ contract StakingContract is
     uint256 public refundPeriod;
 
     // Storage for accepted tokens and price feeds
-    EnumerableSetUpgradeable.AddressSet private acceptedTokens;
+    EnumerableSet.AddressSet private acceptedTokens;
     mapping(address => AggregatorV3Interface) public priceFeeds;
     mapping(address => uint256) public maxPriceAges;
 
@@ -207,7 +207,7 @@ contract StakingContract is
             "Initial hosting fee must be greater than zero"
         );
 
-        qiToken = IERC20Upgradeable(addresses.qiToken);
+        qiToken = IERC20(addresses.qiToken);
         zeeveWallet = addresses.zeeveWallet;
         igniteContract = IIgnite(addresses.igniteContract);
         avaxStakeAmount = _initialStakingAmount;
@@ -431,7 +431,7 @@ contract StakingContract is
                 2300
             );
         } else {
-            IERC20Upgradeable(record.tokenType).safeTransfer(
+            IERC20(record.tokenType).safeTransfer(
                 zeeveWallet,
                 record.hostingFeePaid
             );
@@ -532,7 +532,7 @@ contract StakingContract is
         require(amount >= totalRequiredToken, "Insufficient token");
 
         // Transfer tokens from the user to the contract
-        IERC20Upgradeable(token).safeTransferFrom(
+        IERC20(token).safeTransferFrom(
             msg.sender,
             address(this),
             totalRequiredToken
@@ -725,7 +725,7 @@ contract StakingContract is
                 2300
             );
         } else {
-            IERC20Upgradeable(tokenType).safeTransfer(user, hostingFeePaid);
+            IERC20(tokenType).safeTransfer(user, hostingFeePaid);
         }
         // Update the status to Refunded
         record.status = StakingStatus.Refunded;
@@ -895,12 +895,12 @@ contract StakingContract is
             );
         } else {
             // Check allowance and approve if necessary
-            uint256 allowance = IERC20Upgradeable(token).allowance(
+            uint256 allowance = IERC20(token).allowance(
                 address(this),
                 address(joeRouter)
             );
             if (allowance < amountIn) {
-                IERC20Upgradeable(token).forceApprove(
+                IERC20(token).forceApprove(
                     address(joeRouter),
                     amountIn
                 );

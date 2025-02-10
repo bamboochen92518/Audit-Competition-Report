@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.0;
 
-import "@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol";
-import "@openzeppelin/contracts-upgradeable/utils/structs/EnumerableSetUpgradeable.sol";
+import { IERC20 } from "@openzeppelin/contracts/interfaces/IERC20.sol"
+import "@openzeppelin/contracts/utils/structs/EnumerableSet.sol";
 
 import "./IStakedAvax.sol";
 import "./IPriceFeed.sol";
@@ -10,10 +10,10 @@ import "./ValidatorRewarder.sol";
 
 
 contract IgniteStorage {
-    using EnumerableSetUpgradeable for EnumerableSetUpgradeable.AddressSet;
+    using EnumerableSet for EnumerableSet.AddressSet;
 
     /// @dev List of all supported ERC-20 payment options for the fee model
-    EnumerableSetUpgradeable.AddressSet paymentTokens;
+    EnumerableSet.AddressSet paymentTokens;
 
     /// @dev Chainlink price feeds for each payment option
     mapping(address => IPriceFeed) public priceFeeds;
@@ -68,7 +68,7 @@ contract IgniteStorage {
     IStakedAvax public sAVAX;
 
     /// @dev The QI token contract
-    IERC20Upgradeable public qi;
+    IERC20 public qi;
 
     /// @dev An array of all registrations
     Registration[] public registrations;

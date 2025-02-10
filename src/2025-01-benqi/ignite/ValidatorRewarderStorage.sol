@@ -1,11 +1,11 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8;
 
-import "@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol";
+import { IERC20 } from "@openzeppelin/contracts/interfaces/IERC20.sol";
 
 contract ValidatorRewarderStorage {
     /// @notice The QI token
-    IERC20Upgradeable public qi;
+    IERC20 public qi;
 
     /// @notice The Ignite contract address
     address public ignite;
