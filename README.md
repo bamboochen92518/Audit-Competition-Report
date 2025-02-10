@@ -2,29 +2,83 @@
 
 ### 2025-02-datingdapp
 
+#### Test Command
+
 ```bash
 forge test --mc SoulboundProfileNFTTest
 ```
 
+#### Competition Link
+
+You can view the competition details here: [2025-02-datingdapp Competition](https://codehawks.cyfrin.io/c/2025-02-datingdapp).
+
+#### My Findings
+
+I have documented my findings here: [Audit Findings - Datingdapp](https://github.com/bamboochen92518/Audit-Competition-Report/tree/main/findings/2025-01-diva/bambooboo-Aave-DIVA-Wrapper.md). 
+
 ### 2025-01-liquid-ron
+
+#### Test Command
 
 ```bash
 forge test --mc LiquidRonTest
 ```
 
+#### Competition Link
+
+You can view the competition details here: [2025-01-liquid-ron Competition](https://code4rena.com/audits/2025-01-liquid-ron).
+
+#### My Findings
+
+I did not identify any bugs in this competition. 😢
+
 ### 2025-01-diva
+
+#### Test Command
 
 ```bash
 forge test --mc AaveDIVAWrapperTest
 ```
 
+#### Competition Link
+
+You can view the competition details here: [2025-01-diva Competition](https://codehawks.cyfrin.io/c/2025-01-diva).
+
+#### My Findings
+
+I have documented my findings here: [Audit Findings - AaveDIVAWrapper](https://github.com/bamboochen92518/Audit-Competition-Report/tree/main/findings/2025-01-diva/bambooboo-Aave-DIVA-Wrapper.md). 
+
 ### 2025-01-pieces-protocol
+
+#### Test Command
 
 ```bash
 forge test --mc TokenDividerTest
 ```
 
+#### Competition Link
+
+You can view the competition details here: [2025-01-pieces-protocol Competition](https://codehawks.cyfrin.io/c/2025-01-pieces-protocol).
+
+#### My Findings
+
+I have documented my findings here: [Audit Findings - PiecesProtocol](https://github.com/bamboochen92518/Audit-Competition-Report/tree/main/findings/2025-01-pieces-protocol/bambooboo-Pieces-Protocol.md). 
+
 ### 2025-01-benqi
+
+#### Test Command
+
+I did not complete the Foundry test in this competition.
+
+#### Competition Link
+
+You can view the competition details here: [2025-01-benqi Competition](https://codehawks.cyfrin.io/c/2025-01-benqi).
+
+#### My Findings
+
+I have documented my findings here: [Audit Findings - Benqi](https://github.com/bamboochen92518/Audit-Competition-Report/tree/main/findings/2025-01-benqi/bambooboo-Ignite.md). 
+
+---
 
 ## Foundry
 
