@@ -5,7 +5,7 @@
 #### Test Command
 
 ```bash
-forge test --mc SoulboundProfileNFTTest
+$ forge test --mc SoulboundProfileNFTTest
 ```
 
 #### Competition Link
@@ -14,14 +14,14 @@ You can view the competition details here: [2025-02-datingdapp Competition](http
 
 #### My Findings
 
-I have documented my findings here: [Audit Findings - Datingdapp](https://github.com/bamboochen92518/Audit-Competition-Report/tree/main/findings/2025-01-diva/bambooboo-Aave-DIVA-Wrapper.md). 
+I have documented my findings here: 
 
 ### 2025-01-liquid-ron
 
 #### Test Command
 
 ```bash
-forge test --mc LiquidRonTest
+$ forge test --mc LiquidRonTest
 ```
 
 #### Competition Link
@@ -37,7 +37,7 @@ I did not identify any bugs in this competition. 😢
 #### Test Command
 
 ```bash
-forge test --mc AaveDIVAWrapperTest
+$ forge test --mc AaveDIVAWrapperTest
 ```
 
 #### Competition Link
@@ -53,7 +53,7 @@ I have documented my findings here: [Audit Findings - AaveDIVAWrapper](https://g
 #### Test Command
 
 ```bash
-forge test --mc TokenDividerTest
+$ forge test --mc TokenDividerTest
 ```
 
 #### Competition Link
