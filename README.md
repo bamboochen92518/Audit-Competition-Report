@@ -1,6 +1,6 @@
 # Audit Competition Report
 
-### 2025-02-datingdapp
+### 2025-03-inheritable-smart-contract-wallet
 
 #### Test Command
 
@@ -15,6 +15,52 @@ You can view the competition details here: [2025-02-datingdapp Competition](http
 #### My Findings
 
 I have documented my findings here: 
+
+### 2025-02-vyper-vested-claims
+
+#### Test Command
+
+The contract is implemented in Vyper, which is not compatible with Foundry.
+
+#### Competition Link
+
+You can view the competition details here: [2025-02-vyper-vested-claims](https://codehawks.cyfrin.io/c/2025-02-vyper-vested-claims).
+
+#### My Findings
+
+I have documented my findings here: [Audit Findings - Vyper Vested Claims](https://github.com/bamboochen92518/Audit-Competition-Report/tree/main/findings/2025-02-vyper-vested-claims/bambooboo-Vyper-Vested-Claims.md).
+
+### 2025-02-raac
+
+#### Test Command
+
+```bash
+$ forge test --mc testRAACTWAP
+```
+
+#### Competition Link
+
+You can view the competition details here: [2025-02-raac Competition](https://codehawks.cyfrin.io/c/2025-02-raac).
+
+#### My Findings
+
+I have documented my findings here: [Audit Findings - Core Contracts](https://github.com/bamboochen92518/Audit-Competition-Report/tree/main/findings/2025-02-raac/bambooboo-Core-Contracts.md).
+
+### 2025-02-datingdapp
+
+#### Test Command
+
+```bash
+$ forge test --mc SoulboundProfileNFTTest
+```
+
+#### Competition Link
+
+You can view the competition details here: [2025-02-datingdapp Competition](https://codehawks.cyfrin.io/c/2025-02-datingdapp).
+
+#### My Findings
+
+I have documented my findings here: [Audit Findings - DatingDapp](https://github.com/bamboochen92518/Audit-Competition-Report/tree/main/findings/2025-02-datingdapp/bambooboo-DatingDapp.md). 
 
 ### 2025-01-liquid-ron
 
