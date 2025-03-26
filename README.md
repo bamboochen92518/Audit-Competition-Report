@@ -5,16 +5,16 @@
 #### Test Command
 
 ```bash
-$ forge test --mc SoulboundProfileNFTTest
+$ forge test --mc InheritanceManagerTest
 ```
 
 #### Competition Link
 
-You can view the competition details here: [2025-02-datingdapp Competition](https://codehawks.cyfrin.io/c/2025-02-datingdapp).
+You can view the competition details here: [2025-03-inheritable-smart-contract-wallet Competition](https://codehawks.cyfrin.io/c/2025-03-inheritable-smart-contract-wallet).
 
 #### My Findings
 
-I have documented my findings here: 
+I have documented my findings here: [Audit Findings - Inheritable Smart Contract Wallet](https://github.com/bamboochen92518/Audit-Competition-Report/tree/main/findings/2025-03-inheritable-smart-contract-wallet/bambooboo-Inheritable-Smart-Contract-Wallet.md).
 
 ### 2025-02-vyper-vested-claims
 
